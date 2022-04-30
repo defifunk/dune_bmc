@@ -6,9 +6,12 @@ import json
 
 
 def fetch_records(dune: DuneAPI) -> list[DuneRecord]:
+    '''Get time'''
+    now = datetime.now()
+    datetime_val = now.strftime("%Y-%m-%d %H:%M")
     sample_query = DuneQuery.from_environment(
-        raw_sql=open_query("./query.sql"),
-        name="BMC Ultraminers - Unclaimed HASH",
+        raw_sql=open_query("./generated_hash_value.sql"),
+        name=f"BMC Ultraminers - Unclaimed HASH (last updated: {datetime_val}",
         network=Network.MAINNET,
         parameters=[
             QueryParameter.number_type("IntParam", 10),
@@ -20,9 +23,7 @@ def fetch_records(dune: DuneAPI) -> list[DuneRecord]:
 
 
 if __name__ == "__main__":
-    dune_connection = DuneAPI.new_from_environment()
-    records = fetch_records(dune_connection)
-    print("First result:", records[0])
+
     '''Load JSON data'''
     json_data = ""
     with open ("./bmc_hash_rewards.json", 'r') as f:
@@ -55,6 +56,7 @@ SELECT * FROM my_table;
     with open('generated_hash_value.sql' ,'w') as f:
         f.write(final_query)
 
-    '''Get time'''
-    # now = datetime.now()
-    # datetime_val = now.strftime("%Y-%m-%d %H:%M")
+    '''Rune Dune'''
+    dune_connection = DuneAPI.new_from_environment()
+    records = fetch_records(dune_connection)
+    print("First result:", records[0])
