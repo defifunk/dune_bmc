@@ -1,0 +1,162 @@
+[
+    {
+        "ultra_miner_id": 1887,
+        "ETH_buy_price": "0.3007",
+        "hash_rewards": 10.0
+    },
+    {
+        "ultra_miner_id": 640,
+        "ETH_buy_price": "0.3088",
+        "hash_rewards": 0.0
+    },
+    {
+        "ultra_miner_id": 159,
+        "ETH_buy_price": "0.3088",
+        "hash_rewards": 0.0
+    },
+    {
+        "ultra_miner_id": 2669,
+        "ETH_buy_price": "0.3088",
+        "hash_rewards": 0.0
+    },
+    {
+        "ultra_miner_id": 992,
+        "ETH_buy_price": "0.3099",
+        "hash_rewards": 20.0
+    },
+    {
+        "ultra_miner_id": 2462,
+        "ETH_buy_price": "0.31",
+        "hash_rewards": 70.0
+    },
+    {
+        "ultra_miner_id": 209,
+        "ETH_buy_price": "0.31",
+        "hash_rewards": 40.0
+    },
+    {
+        "ultra_miner_id": 4138,
+        "ETH_buy_price": "0.32",
+        "hash_rewards": 0.0
+    },
+    {
+        "ultra_miner_id": 1648,
+        "ETH_buy_price": "0.32",
+        "hash_rewards": 10.0
+    },
+    {
+        "ultra_miner_id": 263,
+        "ETH_buy_price": "0.33",
+        "hash_rewards": 120.0
+    },
+    {
+        "ultra_miner_id": 1649,
+        "ETH_buy_price": "0.34",
+        "hash_rewards": 10.0
+    },
+    {
+        "ultra_miner_id": 2742,
+        "ETH_buy_price": "0.3499",
+        "hash_rewards": 80.0
+    },
+    {
+        "ultra_miner_id": 2780,
+        "ETH_buy_price": "0.39",
+        "hash_rewards": 40.0
+    },
+    {
+        "ultra_miner_id": 937,
+        "ETH_buy_price": "0.4",
+        "hash_rewards": 120.0
+    },
+    {
+        "ultra_miner_id": 2932,
+        "ETH_buy_price": "0.444",
+        "hash_rewards": 100.0
+    },
+    {
+        "ultra_miner_id": 3817,
+        "ETH_buy_price": "0.45",
+        "hash_rewards": 120.0
+    },
+    {
+        "ultra_miner_id": 4017,
+        "ETH_buy_price": "0.45",
+        "hash_rewards": 440.0
+    },
+    {
+        "ultra_miner_id": 1833,
+        "ETH_buy_price": "0.45",
+        "hash_rewards": 0.0
+    },
+    {
+        "ultra_miner_id": 146,
+        "ETH_buy_price": "0.45",
+        "hash_rewards": 920.0
+    },
+    {
+        "ultra_miner_id": 3263,
+        "ETH_buy_price": "0.47",
+        "hash_rewards": 500.0
+    },
+    {
+        "ultra_miner_id": 522,
+        "ETH_buy_price": "0.479",
+        "hash_rewards": 180.0
+    },
+    {
+        "ultra_miner_id": 3550,
+        "ETH_buy_price": "0.496",
+        "hash_rewards": 60.0
+    },
+    {
+        "ultra_miner_id": 1481,
+        "ETH_buy_price": "0.497",
+        "hash_rewards": 60.0
+    },
+    {
+        "ultra_miner_id": 3537,
+        "ETH_buy_price": "0.498",
+        "hash_rewards": 60.0
+    },
+    {
+        "ultra_miner_id": 3549,
+        "ETH_buy_price": "0.499",
+        "hash_rewards": 60.0
+    },
+    {
+        "ultra_miner_id": 1512,
+        "ETH_buy_price": "0.499",
+        "hash_rewards": 60.0
+    },
+    {
+        "ultra_miner_id": 3321,
+        "ETH_buy_price": "0.5",
+        "hash_rewards": 920.0
+    },
+    {
+        "ultra_miner_id": 3323,
+        "ETH_buy_price": "0.5",
+        "hash_rewards": 920.0
+    },
+    {
+        "ultra_miner_id": 3313,
+        "ETH_buy_price": "0.5",
+        "hash_rewards": 920.0
+    },
+    {
+        "ultra_miner_id": 3314,
+        "ETH_buy_price": "0.5",
+        "hash_rewards": 920.0
+    },
+    {
+        "ultra_miner_id": 941,
+        "ETH_buy_price": "0.5",
+        "hash_rewards": 920.0
+    },
+    {
+        "ultra_miner_id": 3324,
+        "ETH_buy_price": "0.5",
+        "hash_rewards": 920.0
+    }
+]
