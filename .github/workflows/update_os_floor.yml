@@ -10,7 +10,7 @@ on:
   
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '*/30 * * * *'
+    - cron:  '*/10 * * * *'
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -19,7 +19,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  update_dune_bmc_unclaimed_hash:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -37,27 +37,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install from requirements
         run: pip install -r requirements.txt
-      # # Runs a single command using the runners shell
-      # - name: Install pipenv
-      #   run: pip install pipenv
-
-      # # Runs a single command using the runners shell
-      # - name: Install pyenv
-      #   run: |
-      #     curl https://pyenv.run | bash
-      #     exec $SHELL
-      #     pyenv install 3.10.4
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Run a update_dune_bmc_floor_ultraminers script
         env:
           INFURA_PROJECT: ${{secrets.INFURA_PROJECT}}
           DUNE_USER: ${{secrets.DUNE_USER}}
           DUNE_PASSWORD: ${{secrets.DUNE_PASSWORD}}
-          DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID}}
+          DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_OS_FLOOR}}
         run: |
-          # pipenv install --dev --python 3.10.4
-          # pipenv run pip install duneapi
-          # pipenv install -r requirements.txt
-          # pipenv run python update_dune_bmc_unclaimed_hash.py
-          python update_dune_bmc_unclaimed_hash.py
+          python update_dune_bmc_floor_ultraminers.py

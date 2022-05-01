@@ -1,0 +1,59 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Run python main.py with pipenv
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/30 * * * *'
+
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  update_dune_bmc_unclaimed_hash:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.10.4
+          architecture: x64
+
+      # Runs a single command using the runners shell
+      - name: Install from requirements
+        run: pip install -r requirements.txt
+
+      # Runs a set of commands using the runners shell
+      - name: Run a update_dune_bmc_unclaimed_hash script
+        env:
+          INFURA_PROJECT: ${{secrets.INFURA_PROJECT}}
+          DUNE_USER: ${{secrets.DUNE_USER}}
+          DUNE_PASSWORD: ${{secrets.DUNE_PASSWORD}}
+          DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_UNCLAIMED_HASH}}
+        run: |
+          python update_dune_bmc_unclaimed_hash.py
+
+      # Runs a set of commands using the runners shell
+      - name: Run a update_dune_bmc_floor_ultraminers script
+        env:
+          INFURA_PROJECT: ${{secrets.INFURA_PROJECT}}
+          DUNE_USER: ${{secrets.DUNE_USER}}
+          DUNE_PASSWORD: ${{secrets.DUNE_PASSWORD}}
+          DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_OS_FLOOR}}
+        run: |
+          python update_dune_bmc_floor_ultraminers.py

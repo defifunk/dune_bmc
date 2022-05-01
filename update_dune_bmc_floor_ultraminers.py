@@ -7,6 +7,7 @@ from get_opensea import get_ultra_miner_floor, get_ultra_price
 from dune_local import fetch_records, DuneAPI
 from dotenv import load_dotenv
 from datetime import datetime
+
 '''web3 components'''
 INFURA_URL = "https://mainnet.infura.io/v3"
 INFURA_PROJECT = config("INFURA_PROJECT")
@@ -40,15 +41,18 @@ if __name__ == "__main__":
     '''Create a dict'''
     results_list = list()
     '''Get NFT floor ids'''
-    # for all nfts - max 4445
-    token_id_list = [ i for i in range(1,4446)]
+    
+    token_id_list = get_ultra_miner_floor()[0:50] # limit to first 50 results 
     '''Fetch hash rewards based on floor nft ids'''
     mp_results = check_hash_rewards_mp(token_id_list)
-    '''Map 2'''
-    for (token_id, rewards) in zip(token_id_list, mp_results) :
+    nft_prices = check_nft_buy_price(token_id_list)
+    # print(results)
+    '''Map 1'''
+    for (token_id, rewards, nft_price) in zip(token_id_list, mp_results,nft_prices) :
         results_list.append(
             {
                 "ultra_miner_id" : token_id,
+                "ETH_buy_price": nft_price,
                 "hash_rewards": rewards,
             }
         )
@@ -56,30 +60,27 @@ if __name__ == "__main__":
     '''Write to file'''
     df = pd.DataFrame(results_list)
     df.index = df.index + 1
-
-    '''Test saving value as dict'''
     df_dict = df.to_dict(orient='records')
     print(df_dict)
+
     '''load from df_dict'''
     json_data = df_dict
     '''Create query string'''
     query_string = str()
     query_prepend = (
-"""DROP TABLE IF EXISTS bmc_ultraminer_unclaimed_hash;
-CREATE TEMPORARY TABLE bmc_ultraminer_unclaimed_hash AS
+"""DROP TABLE IF EXISTS bmc_ultraminer_opensea_floor;
+CREATE TEMPORARY TABLE bmc_ultraminer_opensea_floor AS
 SELECT * FROM (VALUES
 """
     )
-
     query_append = (
-""") AS t (ultra_miner_id, hash_rewards);
-SELECT * FROM bmc_ultraminer_unclaimed_hash;
+""") AS t (ultra_miner_id, ETH_buy_price, hash_rewards);
+SELECT * FROM bmc_ultraminer_opensea_floor;
 """
     )
 
     for idx, entry in enumerate(json_data):
-        # query_val = f'{entry.get("ultra_miner_id"),entry.get("ETH_buy_price"),entry.get("hash_rewards")}'
-        query_val = f'{entry.get("ultra_miner_id"),entry.get("hash_rewards")}'
+        query_val = f'{entry.get("ultra_miner_id"),entry.get("ETH_buy_price"),entry.get("hash_rewards")}'
         
         print(f"{idx} - {query_val}")
         if idx == (len(json_data) - 1) :
@@ -99,6 +100,6 @@ SELECT * FROM bmc_ultraminer_unclaimed_hash;
     dune_connection = DuneAPI.new_from_environment()
     records = fetch_records(
         dune_connection,
-        query_name=f"BMC Ultraminers - Unclaimed HASH (last updated: {datetime_val} UTC)",
-        description=f"Update interval: 30minutes")
+        query_name=f"BMC Ultraminers - Opensea Floor (last updated: {datetime_val} UTC)",
+        description=f"Update interval: 10minutes")
     print("First result:", records[0])
