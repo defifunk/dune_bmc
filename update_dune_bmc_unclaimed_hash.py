@@ -99,6 +99,6 @@ SELECT * FROM bmc_ultraminer_unclaimed_hash;
     dune_connection = DuneAPI.new_from_environment()
     records = fetch_records(
         dune_connection,
-        query_name=f"BMC Ultraminers - Unclaimed HASH (last updated: {datetime_val} UTC)",
-        query_description=f"Update interval: 30minutes")
+        query_name=f"BMC Ultraminers - Unclaimed HASH",
+        query_description=f"Update interval: 1h (last updated: {datetime_val} UTC)")
     print("First result:", records[0])

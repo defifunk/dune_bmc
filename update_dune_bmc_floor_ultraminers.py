@@ -75,7 +75,8 @@ SELECT * FROM (VALUES
     )
     query_append = (
 """) AS t (ultra_miner_id, ETH_buy_price, hash_rewards);
-SELECT * FROM bmc_ultraminer_opensea_floor;
+SELECT * FROM bmc_ultraminer_opensea_floor
+ORDER BY ETH_buy_price ASC
 """
     )
 
@@ -100,6 +101,6 @@ SELECT * FROM bmc_ultraminer_opensea_floor;
     dune_connection = DuneAPI.new_from_environment()
     records = fetch_records(
         dune_connection,
-        query_name=f"BMC Ultraminers - Opensea Floor (last updated: {datetime_val} UTC)",
-        query_description=f"Update interval: 10minutes")
+        query_name=f"BMC Ultraminers - Opensea Floor",
+        query_description=f"Update interval: 15mins (last updated: {datetime_val} UTC)")
     print("First result:", records[0])
