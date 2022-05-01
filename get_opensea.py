@@ -62,4 +62,4 @@ def get_ultra_price(miner_nft_id: str) -> str:
     soup = BeautifulSoup(response.text, 'html.parser')
     soup_val = soup.find(class_="Price--amount")
 
-    return soup_val.get_text().strip() if soup_val else None
+    return soup_val.get_text().strip() if soup_val else ''
