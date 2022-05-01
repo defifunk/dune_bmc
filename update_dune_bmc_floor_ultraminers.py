@@ -101,5 +101,5 @@ SELECT * FROM bmc_ultraminer_opensea_floor;
     records = fetch_records(
         dune_connection,
         query_name=f"BMC Ultraminers - Opensea Floor (last updated: {datetime_val} UTC)",
-        description=f"Update interval: 10minutes")
+        query_description=f"Update interval: 10minutes")
     print("First result:", records[0])

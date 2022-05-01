@@ -100,5 +100,5 @@ SELECT * FROM bmc_ultraminer_unclaimed_hash;
     records = fetch_records(
         dune_connection,
         query_name=f"BMC Ultraminers - Unclaimed HASH (last updated: {datetime_val} UTC)",
-        description=f"Update interval: 30minutes")
+        query_description=f"Update interval: 30minutes")
     print("First result:", records[0])
