@@ -18,6 +18,9 @@ FROM bmc_ultraminer_unclaimed_hash;
     with open('generated_hash_value.sql' ,'r') as f:
         current_query = f.read()
     final_query = current_query + query_append
+    '''Write back to sql file'''
+    with open('generated_hash_value.sql' ,'w') as f:
+        f.write(final_query)
     '''Get time'''
     now = datetime.now().utcnow()
     datetime_val = now.strftime("%Y-%m-%d %H:%M")
@@ -28,4 +31,4 @@ FROM bmc_ultraminer_unclaimed_hash;
         dune_connection,
         query_name=f"BMC Ultraminers - Total Unclaimed HASH",
         query_description=f"Update interval: 1h (last updated: {datetime_val} UTC)")
-    print("First result:", records[0])
+    print("First result:", records)
