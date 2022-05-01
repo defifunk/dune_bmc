@@ -15,6 +15,7 @@ python-decouple = "*"
 web3 = "*"
 pandas = "*"
 beautifulsoup4 = "*"
+duneapi = "*"
 
 [dev-packages]
 
