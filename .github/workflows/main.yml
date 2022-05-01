@@ -47,7 +47,7 @@ jobs:
           DUNE_PASSWORD: ${{secrets.DUNE_PASSWORD}}
           DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID}}
         run: |
-          # pipenv install --dev
+          pipenv install --dev --python 3.10.4
           pipenv run pip install duneapi
           pipenv install -r requirements.txt
           pipenv run python update_dune_bmc_unclaimed_hash.py
