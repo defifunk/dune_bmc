@@ -1,0 +1,25 @@
+{
+    "CONTRACT_ADDRESS": "0x47Bd71b482B27eBDb57af6e372cab46c7280bf44",
+    "ULTRA_MINER_CONTRACT_ADDRESS": "0x0c6822ca73de6871f27acd9ca05a05b99294b805",
+    "HASH_POWER_CONTRACT_ADDRESS": "0x7b32982a32bB71150FCAA99BfBadDD72c1775a10",
+    "ASSET_URL": "https://api.opensea.io/api/v1/assets",
+    "HASH_TOKEN": {
+      "CONTRACT_ADDRESS": "0x7b32982a32bB71150FCAA99BfBadDD72c1775a10",
+      "DECIMALS": 18,
+      "SYMBOL": "HASH"
+    },
+    "NETWORK": {
+      "NAME": "Mainnet",
+      "SYMBOL": "ETH",
+      "ID": 1
+    },
+    "NFT_NAME": "Blockchain Miners",
+    "SYMBOL": "BMC",
+    "MAX_SUPPLY": 11111,
+    "WEI_COST": 70000000000000000,
+    "DISPLAY_COST": 0.07,
+    "ADJUST_GAS": 1.2,
+    "MARKETPLACE": "Opensea",
+    "MARKETPLACE_LINK": "https://opensea.io/collection/BlockchainMiners",
+    "SHOW_BACKGROUND": true
+  }
