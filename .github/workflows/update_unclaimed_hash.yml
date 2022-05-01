@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Run python main.py with pipenv
+name: update_dune_bmc_unclaimed_hash
 
 # Controls when the workflow will run
 on:
@@ -47,13 +47,3 @@ jobs:
           DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_UNCLAIMED_HASH}}
         run: |
           python update_dune_bmc_unclaimed_hash.py
-
-      # Runs a set of commands using the runners shell
-      - name: Run a update_dune_bmc_floor_ultraminers script
-        env:
-          INFURA_PROJECT: ${{secrets.INFURA_PROJECT}}
-          DUNE_USER: ${{secrets.DUNE_USER}}
-          DUNE_PASSWORD: ${{secrets.DUNE_PASSWORD}}
-          DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_OS_FLOOR}}
-        run: |
-          python update_dune_bmc_floor_ultraminers.py
