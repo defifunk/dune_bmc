@@ -75,7 +75,12 @@ SELECT * FROM (VALUES
     )
     query_append = (
 """) AS t (ultra_miner_id, ETH_buy_price, hash_rewards);
-SELECT * FROM bmc_ultraminer_opensea_floor
+
+SELECT 
+    CONCAT('<a href="https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/', "ultra_miner_id",'" target="_blank">🌊</a> ', "ultra_miner_id") AS ultra_miner,
+    ETH_buy_price,
+    hash_rewards
+FROM bmc_ultraminer_opensea_floor
 ORDER BY ETH_buy_price ASC
 """
     )
