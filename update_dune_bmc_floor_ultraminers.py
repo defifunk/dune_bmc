@@ -22,7 +22,15 @@ factory_contract = w3.eth.contract(address=factory_address, abi=factory_abi, )
 # check daily rewards accumulated
 
 def check_ultra_accum_rewards(token_id: int) -> int:
-    return factory_contract.functions.checkUltraDailyReward(token_id).call() / 10**18
+    loop = True
+    while loop:
+        try:
+            accum_rewards = factory_contract.functions.checkUltraDailyReward(token_id).call() / 10**18
+            loop = False
+        except Exception as e:
+            print(f"web3 exception:{e}")
+            
+    return accum_rewards
 
 
 def check_hash_rewards_mp(token_id_list: list) -> tuple:
