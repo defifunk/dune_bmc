@@ -9,6 +9,7 @@ on:
     branches: [ main ]
     paths:
       - 'update_dune_bmc_unclaimed_hash.py'
+      - 'update_dune_bmc_unclaimed_hash_sum.py'
 
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -49,3 +50,15 @@ jobs:
           DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_UNCLAIMED_HASH}}
         run: |
           python update_dune_bmc_unclaimed_hash.py
+      # Runs a set of commands using the runners shell
+      - name: Run a update_dune_bmc_unclaimed_hash_sum script
+        env:
+          INFURA_PROJECT: ${{secrets.INFURA_PROJECT}}
+          DUNE_USER: ${{secrets.DUNE_USER}}
+          DUNE_PASSWORD: ${{secrets.DUNE_PASSWORD}}
+          DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_TOTAL_UNCLAIMED_HASH_SUM}}
+        run: |
+          # remove the last SELECT line
+          sed -i '$d' generated_hash_value.sql
+          # append new SELECT and submit query
+          python update_dune_bmc_unclaimed_hash_sum.py
