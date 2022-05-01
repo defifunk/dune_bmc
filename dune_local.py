@@ -11,6 +11,7 @@ def fetch_records(dune: DuneAPI) -> list[DuneRecord]:
     sample_query = DuneQuery.from_environment(
         raw_sql=open_query("./generated_hash_value.sql"),
         name=f"BMC Ultraminers - Unclaimed HASH (last updated: {datetime_val} UTC)",
+        description=f"Update interval: 30minutes",
         network=Network.MAINNET,
         parameters=[
             # QueryParameter.number_type("IntParam", 10),
