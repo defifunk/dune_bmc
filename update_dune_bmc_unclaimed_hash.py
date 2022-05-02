@@ -9,13 +9,22 @@ from dotenv import load_dotenv
 from datetime import datetime
 '''web3 components'''
 INFURA_URL = "https://mainnet.infura.io/v3"
-INFURA_PROJECT = config("INFURA_PROJECT")
-w3 = Web3(Web3.HTTPProvider(INFURA_PROJECT))
+factory_address = '0x7b32982a32bB71150FCAA99BfBadDD72c1775a10'
 factory_abi = dict()
 with open ("./json/bmcfactoryABI.json", 'r') as f:
     factory_abi = json.load(f)
-factory_address = '0x7b32982a32bB71150FCAA99BfBadDD72c1775a10'
-factory_contract = w3.eth.contract(address=factory_address, abi=factory_abi, )
+'''INFURA Endpoint #1'''
+INFURA_PROJECT_1 = config("INFURA_PROJECT_1")
+w3_1 = Web3(Web3.HTTPProvider(INFURA_PROJECT_1))
+factory_contract_1 = w3_1.eth.contract(address=factory_address, abi=factory_abi, )
+'''INFURA Endpoint #2'''
+INFURA_PROJECT_2 = config("INFURA_PROJECT_2")
+w3_2 = Web3(Web3.HTTPProvider(INFURA_PROJECT_2))
+factory_contract_2 = w3_2.eth.contract(address=factory_address, abi=factory_abi, )
+'''INFURA Endpoint #3'''
+INFURA_PROJECT_3 = config("INFURA_PROJECT_3")
+w3_3 = Web3(Web3.HTTPProvider(INFURA_PROJECT_3))
+factory_contract_3 = w3_3.eth.contract(address=factory_address, abi=factory_abi, )
 
 
 # check daily rewards accumulated
@@ -24,11 +33,26 @@ def check_ultra_accum_rewards(token_id: int) -> int:
     loop = True
     while loop:
         try:
-            accum_rewards = factory_contract.functions.checkUltraDailyReward(token_id).call() / 10**18
+            accum_rewards = factory_contract_1.functions.checkUltraDailyReward(token_id).call() / 10**18
+            print(f"web3_1 went okay")
             loop = False
         except Exception as e:
-            print(f"web3 exception:{e}")
-            
+            print(f"web3_1 exception:{e}")
+        try:
+            accum_rewards = factory_contract_2.functions.checkUltraDailyReward(token_id).call() / 10**18
+            print(f"web3_2 went okay")
+            loop = False
+        except Exception as e:
+            print(f"web3_2 exception:{e}")
+        try:
+            accum_rewards = factory_contract_3.functions.checkUltraDailyReward(token_id).call() / 10**18
+            print(f"web3_3 went okay")
+            loop = False
+        except Exception as e:
+            print(f"web3_3 exception:{e}")
+        finally:
+            print(f"all endpoints are failed. Exiting loop")
+            loop = False
     return accum_rewards
 
 def check_hash_rewards_mp(token_id_list: list) -> tuple:
