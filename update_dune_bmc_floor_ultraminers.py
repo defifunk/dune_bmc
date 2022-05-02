@@ -55,7 +55,7 @@ def check_ultra_accum_rewards(token_id: int) -> int:
         except Exception as e:
             print(f"web3_3 exception:{e}")
             print(f"all endpoints are failed. Exiting loop")
-    return accum_rewards
+    return accum_rewards or -1
 
 
 def check_hash_rewards_mp(token_id_list: list) -> tuple:
