@@ -32,29 +32,29 @@ factory_contract_3 = w3_3.eth.contract(address=factory_address, abi=factory_abi,
 
 
 def check_ultra_accum_rewards(token_id: int) -> int:
-    loop = True
-    while loop:
+    accum_rewards = ""
+    if not accum_rewards:
         try:
             accum_rewards = factory_contract_1.functions.checkUltraDailyReward(token_id).call() / 10**18
             print(f"web3_1 went okay")
             loop = False
         except Exception as e:
             print(f"web3_1 exception:{e}")
+    if not accum_rewards:
         try:
             accum_rewards = factory_contract_2.functions.checkUltraDailyReward(token_id).call() / 10**18
             print(f"web3_2 went okay")
             loop = False
         except Exception as e:
             print(f"web3_2 exception:{e}")
+    if not accum_rewards:
         try:
             accum_rewards = factory_contract_3.functions.checkUltraDailyReward(token_id).call() / 10**18
             print(f"web3_3 went okay")
             loop = False
         except Exception as e:
             print(f"web3_3 exception:{e}")
-        finally:
             print(f"all endpoints are failed. Exiting loop")
-            loop = False
     return accum_rewards
 
 
