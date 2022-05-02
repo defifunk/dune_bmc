@@ -43,7 +43,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a update_dune_bmc_floor_ultraminers script
         env:
-          INFURA_PROJECT: ${{secrets.INFURA_PROJECT}}
+          INFURA_PROJECT_1: ${{secrets.INFURA_PROJECT_1}}
+          INFURA_PROJECT_2: ${{secrets.INFURA_PROJECT_2}}
+          INFURA_PROJECT_3: ${{secrets.INFURA_PROJECT_3}}
           DUNE_USER: ${{secrets.DUNE_USER}}
           DUNE_PASSWORD: ${{secrets.DUNE_PASSWORD}}
           DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_OS_FLOOR}}
