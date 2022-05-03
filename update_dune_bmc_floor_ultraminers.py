@@ -140,5 +140,5 @@ ORDER BY ETH_buy_price ASC
     records = fetch_records(
         dune_connection,
         query_name=f"BMC Ultraminers - Opensea Floor",
-        query_description=f"Update interval: 15mins (last updated: {datetime_val} UTC)")
+        query_description=f"Update interval: 20mins (last updated: {datetime_val} UTC)")
     print("First result:", records[0])
