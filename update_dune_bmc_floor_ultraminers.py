@@ -98,6 +98,7 @@ if __name__ == "__main__":
 
     '''load from df_dict'''
     json_data = df_dict
+    print(f"json_data:{json_data}")
     '''Create query string'''
     query_string = str()
     query_prepend = (
@@ -137,8 +138,9 @@ ORDER BY ETH_buy_price ASC
     
     '''Rune Dune'''
     dune_connection = DuneAPI.new_from_environment()
-    records = fetch_records(
-        dune_connection,
-        query_name=f"BMC Ultraminers - Opensea Floor",
-        query_description=f"Update interval: 20mins (last updated: {datetime_val} UTC)")
-    print("First result:", records[0])
+    if json_data:
+        records = fetch_records(
+            dune_connection,
+            query_name=f"BMC Ultraminers - Opensea Floor",
+            query_description=f"Update interval: 20mins (last updated: {datetime_val} UTC)")
+        print("First result:", records[0])
