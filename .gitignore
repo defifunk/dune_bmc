@@ -1,3 +1,6 @@
 .env
 __pycache__/**
 *.sql
+.ignore/bmc_hash_rewards.json
+.ignore/dune_local.py
+.ignore/test.py
