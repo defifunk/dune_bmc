@@ -31,4 +31,4 @@ FROM bmc_ultraminer_unclaimed_hash;
         dune_connection,
         query_name=f"Update interval: 1h (last updated: {datetime_val} UTC)",
         query_description=f"")
-    print("First result:", records)
+    print("First result:", records) 
