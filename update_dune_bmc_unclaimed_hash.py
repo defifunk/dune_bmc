@@ -72,7 +72,7 @@ if __name__ == "__main__":
     results_list = list()
     '''Get NFT floor ids'''
     # for all nfts - max 4445
-    token_id_list = [ i for i in range(1,4446)]
+    token_id_list = [ i for i in range(0,4446)]
     '''Fetch hash rewards based on floor nft ids'''
     mp_results = check_hash_rewards_mp(token_id_list)
     '''Map 2'''
@@ -104,7 +104,16 @@ SELECT * FROM (VALUES
 
     query_append = (
 """) AS t (ultra_miner_id, hash_rewards);
-SELECT * FROM bmc_ultraminer_unclaimed_hash;
+SELECT 
+    a.ultra_miner_id, 
+    b.type_trait,
+    b.rarity_rank,
+    a.hash_rewards, 
+    CONCAT('<a href="https://raritysniffer.com/viewcollection/bmcultraminers?nft=', a.ultra_miner_id,'" target="_blank">🎯</a> ',
+           '<a href="https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/', a.ultra_miner_id,'" target="_blank">🌊</a>' ) AS opensea_and_trait_sniper_links
+
+FROM bmc_ultraminer_unclaimed_hash a
+LEFT JOIN dune_user_generated."defifunk_nft_metadata_bmc_ultraminer_traits" b ON a.ultra_miner_id = b.ultra_miner_id
 """
     )
 
