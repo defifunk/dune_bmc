@@ -72,7 +72,7 @@ if __name__ == "__main__":
     results_list = list()
     '''Get NFT floor ids'''
     # for all nfts - max 4445
-    token_id_list = [ i for i in range(0,4446)]
+    token_id_list = [ i for i in range(0,4445)]
     '''Fetch hash rewards based on floor nft ids'''
     mp_results = check_hash_rewards_mp(token_id_list)
     '''Map 2'''
