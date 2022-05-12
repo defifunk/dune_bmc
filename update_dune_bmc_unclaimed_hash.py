@@ -109,8 +109,8 @@ SELECT
     b.type_trait,
     b.rarity_rank,
     a.hash_rewards, 
-    CONCAT('<a href="https://raritysniffer.com/viewcollection/bmcultraminers?nft=', a.ultra_miner_id,'" target="_blank">🎯</a> ',
-           '<a href="https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/', a.ultra_miner_id,'" target="_blank">🌊</a>' ) AS traitsniper_and_opensea_links
+    CONCAT('<a href="https://raritysniffer.com/viewcollection/bmcultraminers?nft=', a.ultra_miner_id,'" target="_blank">👃🏻</a> ',
+           '<a href="https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/', a.ultra_miner_id,'" target="_blank">🌊</a>' ) AS raritysniffer_and_opensea_links
 
 FROM bmc_ultraminer_unclaimed_hash a
 LEFT JOIN dune_user_generated."defifunk_nft_metadata_bmc_ultraminer_traits" b ON a.ultra_miner_id = b.ultra_miner_id
