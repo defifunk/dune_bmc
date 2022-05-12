@@ -1,0 +1,74 @@
+{
+    "position": "RANK #1 - ID #63",
+    "positionId": 1,
+    "id": 63,
+    "name": "ULTRA MINER #63-63",
+    "price": "NOT FOR SALE ETH",
+    "score": 25133.74,
+    "imageUrl": "https: //ipfs.raritysniffer.com/ipfs/QmZY9Wfa1ytcwkhXymZQ3Kr7mA3pf1tfkfq5q2E8bY7msn/63.gif",
+    "openseaLink": "https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/63",
+    "traits": [
+        {
+            "n": "42",
+            "c": "Special",
+            "r": 5414.49,
+            "t": 1
+        },
+        {
+            "n": "True",
+            "c": "Animated",
+            "r": 12182.59,
+            "t": 6
+        },
+        {
+            "n": "2",
+            "c": "Trait Count",
+            "r": 6091.3,
+            "t": 6
+        },
+        {
+            "n": "None",
+            "c": "Type",
+            "r": 1124.55,
+            "t": 26
+        },
+        {
+            "n": "None",
+            "c": "Background",
+            "r": 119.63,
+            "t": 26
+        },
+        {
+            "n": "None",
+            "c": "Base",
+            "r": 68.57,
+            "t": 26
+        },
+        {
+            "n": "None",
+            "c": "Face",
+            "r": 124.95,
+            "t": 26
+        },
+        {
+            "n": "None",
+            "c": "Top",
+            "r": 4.93,
+            "t": 690
+        },
+        {
+            "n": "None",
+            "c": "Side",
+            "r": 2.74,
+            "t": 1300
+        }
+    ]
+}
+
+
+for entry in traits_dict:
+    trait_type = str()
+    for trait in entry.get("traits"):
+        if trait.get("c") == "Type":
+            trait_type = trait.get("n")
+

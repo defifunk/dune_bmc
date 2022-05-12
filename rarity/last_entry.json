@@ -1,0 +1,66 @@
+{
+    "position": "RANK #4445 - ID #4051",
+    "positionId": 4445,
+    "id": 4051,
+    "name": "ULTRA MINER #4051-4051",
+    "price": "NOT FOR SALE ETH",
+    "score": 118.53,
+    "imageUrl": "https://images.raritysniffer.com/500/500/ipfs/QmZY9Wfa1ytcwkhXymZQ3Kr7mA3pf1tfkfq5q2E8bY7msn/4051.png",
+    "openseaLink": "https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/4051",
+    "traits": [
+        {
+            "n": "Organic",
+            "c": "Type",
+            "r": 21.71,
+            "t": 1347
+        },
+        {
+            "n": "Stargazing",
+            "c": "Background",
+            "r": 13.52,
+            "t": 230
+        },
+        {
+            "n": "Olive",
+            "c": "Base",
+            "r": 13.21,
+            "t": 135
+        },
+        {
+            "n": "Stranger",
+            "c": "Face",
+            "r": 13.88,
+            "t": 234
+        },
+        {
+            "n": "BrokenSea",
+            "c": "Top",
+            "r": 16.91,
+            "t": 201
+        },
+        {
+            "n": "5",
+            "c": "Trait Count",
+            "r": 18.86,
+            "t": 1938
+        },
+        {
+            "n": "None",
+            "c": "Side",
+            "r": 2.74,
+            "t": 1300
+        },
+        {
+            "n": "None",
+            "c": "Special",
+            "r": 1.23,
+            "t": 4419
+        },
+        {
+            "n": "None",
+            "c": "Animated",
+            "r": 16.47,
+            "t": 4439
+        }
+    ]
+}
