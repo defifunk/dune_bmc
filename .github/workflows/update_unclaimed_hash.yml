@@ -60,6 +60,7 @@ jobs:
           DUNE_QUERY_ID: ${{secrets.DUNE_QUERY_ID_TOTAL_UNCLAIMED_HASH_SUM}}
         run: |
           # remove the last SELECT line
-          sed -i '$d' generated_hash_value.sql
+          #sed -i '$d' generated_hash_value.sql
+          head -n -10 generated_hash_value.sql > tmp.txt && mv tmp.txt generated_hash_value.sql 
           # append new SELECT and submit query
           python update_dune_bmc_unclaimed_hash_sum.py
