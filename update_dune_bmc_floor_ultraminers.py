@@ -111,10 +111,16 @@ SELECT * FROM (VALUES
 """) AS t (ultra_miner_id, ETH_buy_price, hash_rewards);
 
 SELECT 
-    CONCAT('<a href="https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/', "ultra_miner_id",'" target="_blank">🌊</a> ', "ultra_miner_id") AS ultra_miner,
-    ETH_buy_price,
-    hash_rewards
-FROM bmc_ultraminer_opensea_floor
+    a.ultra_miner_id,
+    a.ETH_buy_price,
+    b.type_trait,
+    b.rarity_rank,
+    a.hash_rewards, 
+    CONCAT('<a href="https://raritysniffer.com/viewcollection/bmcultraminers?nft=', a.ultra_miner_id,'" target="_blank">🎯</a> ',
+           '<a href="https://opensea.io/assets/0x0c6822ca73de6871f27acd9ca05a05b99294b805/', a.ultra_miner_id,'" target="_blank">🌊</a>' ) AS opensea_and_trait_sniper_links
+
+FROM bmc_ultraminer_opensea_floor a
+LEFT JOIN dune_user_generated."defifunk_nft_metadata_bmc_ultraminer_traits" b ON a.ultra_miner_id = b.ultra_miner_id
 ORDER BY ETH_buy_price ASC
 """
     )
