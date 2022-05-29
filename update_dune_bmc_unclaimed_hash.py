@@ -142,3 +142,4 @@ LEFT JOIN dune_user_generated."defifunk_nft_metadata_bmc_ultraminer_traits" b ON
         query_name=f"BMC Ultraminers - Unclaimed HASH",
         query_description=f"Update interval: 1h (last updated: {datetime_val} UTC)")
     print("First result:", records[0])
+ 

@@ -150,3 +150,4 @@ ORDER BY ETH_buy_price ASC
             query_name=f"BMC Ultraminers - Opensea Floor",
             query_description=f"Update interval: 20mins (last updated: {datetime_val} UTC)")
         print("First result:", records[0])
+ 
