@@ -3,18 +3,18 @@ import json
 JSON_FILE = "./hashdroids.json"
 
 traits_dict = dict()
-with open(JSON_FILE, 'r') as f:
+with open(JSON_FILE, "r") as f:
     traits_dict = json.load(f)
 
 
 traits_list = list()
 
 
-'''
+"""
 Loop over all entries
-'''
+"""
 for entry in traits_dict:
-    '''Get Ultraminer Type'''
+    """Get Ultraminer Type"""
     type_trait = str()
     # for trait in entry.get("traits"):
     #     if trait.get("c") == "Type":
@@ -41,41 +41,37 @@ for entry in traits_dict:
         }
     )
 
-'''
+"""
 save traits to file
-'''
+"""
 # OUTPUT_FILE = "./traits_list.json"
 # with open (OUTPUT_FILE, 'w') as f:
 #     f.write(json.dumps(traits_list))
 
-'''
+"""
 generate sql statement
-'''
-query_prepend = (
-"""DROP TABLE IF EXISTS bmc_hashdroids_traits;
+"""
+query_prepend = """DROP TABLE IF EXISTS bmc_hashdroids_traits;
 CREATE TEMPORARY TABLE bmc_hashdroids_traits AS
 SELECT * FROM (VALUES
 """
-    )
-query_append = (
-""") AS t (hashdroid_id,traits_count,background,eyes,hat,body,ears,head,mouth,top_torso,outfit,bottom_torso,full_head,full_body,special );
+query_append = """) AS t (hashdroid_id,traits_count,background,eyes,hat,body,ears,head,mouth,top_torso,outfit,bottom_torso,full_head,full_body,special );
 
 SELECT
     *
 FROM bmc_hashdroids_traits
 ORDER BY hashdroid_id ASC
 """
-    )
 query_string = str()
 for idx, entry in enumerate(traits_list):
-    query_val = f'{tuple(entry.values())}'
+    query_val = f"{tuple(entry.values())}"
 
     if idx == (len(traits_list) - 1):
         query_string += query_val
     else:
-        query_string += query_val + ',' + '\n'
+        query_string += query_val + "," + "\n"
 
 final_query = query_prepend + query_string + query_append
-with open('hashdroids_traits.sql', 'w') as f:
+with open("hashdroids_traits.sql", "w") as f:
     f.write(final_query)
 # print(traits_dict)

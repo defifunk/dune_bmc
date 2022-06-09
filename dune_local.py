@@ -3,8 +3,9 @@ from duneapi.types import Network, QueryParameter, DuneRecord, DuneQuery
 from duneapi.util import open_query
 
 
-
-def fetch_records(dune: DuneAPI,query_name:str, query_description: str) -> list[DuneRecord]:
+def fetch_records(
+    dune: DuneAPI, query_name: str, query_description: str
+) -> list[DuneRecord]:
     sample_query = DuneQuery.from_environment(
         raw_sql=open_query("./generated_hash_value.sql"),
         name=query_name,
