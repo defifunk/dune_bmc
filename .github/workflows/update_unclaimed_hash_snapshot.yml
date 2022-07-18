@@ -12,7 +12,7 @@ on:
 
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 * 9-18 7 *'
+    # - cron:  '0 * 9-18 7 *'
 
 
   # Allows you to run this workflow manually from the Actions tab
